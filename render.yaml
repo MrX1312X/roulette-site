@@ -2,7 +2,9 @@ services:
   - type: web
     name: roulette-site
     runtime: python
-    buildCommand: pip install -r backend/requirements.txt
+    buildCommand: |
+      pip install -r requirements.txt
+      python -c "from backend.database import db; from backend.app import app; with app.app_context(): db.create_all()"
     startCommand: gunicorn backend.app:app
     envVars:
       - key: FLASK_ENV
