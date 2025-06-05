@@ -11,3 +11,4 @@ services:
         value: 10000
       - key: FLASK_ENV
         value: production
+
