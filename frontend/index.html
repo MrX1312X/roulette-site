@@ -1,58 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>99 Cell Roulette</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>99 Cell Roulette</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>99 Cell Roulette</h1>
-            <div class="user-panel">
-                <span id="username"></span>
-                <span id="balance"></span>
-                <button id="logout">Logout</button>
-            </div>
-        </header>
-        
-        <main>
-            <div class="game-area">
-                <div class="roulette-grid" id="rouletteGrid"></div>
-                <div class="controls">
-                    <input type="number" id="betAmount" min="1" value="10">
-                    <button id="playButton">Play</button>
-                </div>
-                <div class="result" id="result"></div>
-                <div class="hash-verification">
-                    <h3>Verify Game</h3>
-                    <input type="text" id="hashInput" placeholder="Paste game hash">
-                    <button id="verifyButton">Verify</button>
-                    <div id="verificationResult"></div>
-                </div>
-            </div>
-            
-            <div class="history">
-                <h2>Bet History</h2>
-                <table id="historyTable">
-                    <thead>
-                        <tr>
-                            <th>Time</th>
-                            <th>Selected</th>
-                            <th>Winning</th>
-                            <th>Amount</th>
-                            <th>Prize</th>
-                            <th>Hash</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </main>
-    </div>
+  <div class="container">
+    <header>
+      <h1>🎰 Рулетка 99</h1>
+      <div class="user-panel">
+        <span id="username">Гость</span>
+        <span id="balance">$0.00</span>
+        <div>
+          <button id="loginBtn">Вход</button>
+          <button id="registerBtn">Регистрация</button>
+          <button id="logout" style="display:none">Выход</button>
+        </div>
+      </div>
+    </header>
     
-    <script src="/js/script.js"></script>
+    <main>
+      <div class="game-area">
+        <div class="roulette-grid" id="rouletteGrid"></div>
+        
+        <div class="controls">
+          <input type="number" id="betAmount" min="1" value="10" placeholder="Сумма ставки">
+          <button id="playButton">Играть</button>
+          <button id="clearBtn">Сбросить выбор</button>
+        </div>
+        
+        <div class="result" id="result">
+          <p>Выберите 1-3 ячейки, укажите ставку и нажмите "Играть"</p>
+        </div>
+        
+        <div class="hash-verification">
+          <h3>🔍 Проверка игры</h3>
+          <input type="text" id="hashInput" placeholder="Введите хеш игры">
+          <button id="verifyButton">Проверить</button>
+          <div id="verificationResult"></div>
+        </div>
+      </div>
+      
+      <div class="history">
+        <h2>📜 История ставок</h2>
+        <table id="historyTable">
+          <thead>
+            <tr>
+              <th>Время</th>
+              <th>Выбрано</th>
+              <th>Победная</th>
+              <th>Ставка</th>
+              <th>Выигрыш</th>
+              <th>Хеш</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  
+  <!-- Модальное окно входа -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Вход в систему</h2>
+      <form id="loginForm">
+        <label for="loginUsername">Имя пользователя:</label>
+        <input type="text" id="loginUsername" required>
+        
+        <label for="loginPassword">Пароль:</label>
+        <input type="password" id="loginPassword" required>
+        
+        <div class="captcha-container">
+          <label for="loginCaptcha">Капча:</label>
+          <input type="text" id="loginCaptcha" required>
+          <img id="loginCaptchaImg" src="" alt="CAPTCHA">
+          <button type="button" id="refreshCaptcha">Обновить</button>
+        </div>
+        
+        <button type="submit">Войти</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Модальное окно регистрации -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Регистрация</h2>
+      <form id="registerForm">
+        <label for="registerUsername">Имя пользователя:</label>
+        <input type="text" id="registerUsername" required>
+        
+        <label for="registerPassword">Пароль:</label>
+        <input type="password" id="registerPassword" required>
+        
+        <label for="registerPasswordConfirm">Подтвердите пароль:</label>
+        <input type="password" id="registerPasswordConfirm" required>
+        
+        <div class="captcha-container">
+          <label for="registerCaptcha">Капча:</label>
+          <input type="text" id="registerCaptcha" required>
+          <img id="registerCaptchaImg" src="" alt="CAPTCHA">
+          <button type="button" id="refreshRegisterCaptcha">Обновить</button>
+        </div>
+        
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+    </div>
+  </div>
+  
+  <script src="/js/script.js"></script>
 </body>
 </html>
