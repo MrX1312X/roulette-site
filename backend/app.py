@@ -1,14 +1,7 @@
-services:
-  - type: web
-    name: roulette-site
-    runtime: python
-    buildCommand: |
-      pip install -r requirements.txt
-    startCommand: |
-      gunicorn --bind :$PORT backend.app:app
-    envVars:
-      - key: PORT
-        value: 10000
-      - key: FLASK_ENV
-        value: production
+from flask import Flask
 
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Roulette App is Running!"
