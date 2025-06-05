@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2FA Setup</title>
+</head>
+<body>
+    <h1>Setup Two-Factor Authentication</h1>
+    <p>Scan this QR code with Google Authenticator:</p>
+    <img src="https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl={{ totp_uri }}" alt="QR Code">
+    <p>Or enter this secret manually: <strong>{{ secret }}</strong></p>
+    <p>Then enter the code from the app to verify:</p>
+    <form method="POST" action="{{ url_for('auth.totp_verify') }}">
+        <input type="text" name="token" required>
+        <button type="submit">Verify</button>
+    </form>
+</body>
+</html>

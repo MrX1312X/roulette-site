@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-panel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#balance {
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+.roulette-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    aspect-ratio: 1/1;
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.cell:hover {
+    background-color: #2980b9;
+}
+
+.cell.selected {
+    background-color: #e74c3c;
+}
+
+.cell.winning {
+    background-color: #2ecc71;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.7);
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#betAmount {
+    padding: 8px;
+    width: 100px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#playButton {
+    background-color: #2ecc71;
+}
+
+#playButton:hover {
+    background-color: #27ae60;
+}
+
+.result {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.hash-verification {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.hash-verification input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+.history {
+    margin-top: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}

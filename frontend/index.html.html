@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>99 Cell Roulette</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>99 Cell Roulette</h1>
+            <div class="user-panel">
+                <span id="username"></span>
+                <span id="balance"></span>
+                <button id="logout">Logout</button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="game-area">
+                <div class="roulette-grid" id="rouletteGrid"></div>
+                <div class="controls">
+                    <input type="number" id="betAmount" min="1" value="10">
+                    <button id="playButton">Play</button>
+                </div>
+                <div class="result" id="result"></div>
+                <div class="hash-verification">
+                    <h3>Verify Game</h3>
+                    <input type="text" id="hashInput" placeholder="Paste game hash">
+                    <button id="verifyButton">Verify</button>
+                    <div id="verificationResult"></div>
+                </div>
+            </div>
+            
+            <div class="history">
+                <h2>Bet History</h2>
+                <table id="historyTable">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Selected</th>
+                            <th>Winning</th>
+                            <th>Amount</th>
+                            <th>Prize</th>
+                            <th>Hash</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/js/script.js"></script>
+</body>
+</html>

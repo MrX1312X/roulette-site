@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2FA Verification</title>
+</head>
+<body>
+    <h1>Two-Factor Verification</h1>
+    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+    <form method="POST">
+        <label>Enter 6-digit code: <input type="text" name="token" required></label>
+        <button type="submit">Verify</button>
+    </form>
+</body>
+</html>
