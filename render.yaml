@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: roulette-site
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: gunicorn backend.app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
