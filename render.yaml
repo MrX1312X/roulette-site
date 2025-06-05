@@ -4,11 +4,7 @@ services:
     runtime: python
     buildCommand: |
       pip install -r requirements.txt
-      python -c "from backend.database import db; from backend.app import app; with app.app_context(): db.create_all()"
-    startCommand: gunicorn backend.app:app
+    startCommand: gunicorn --bind :$PORT backend.app:app
     envVars:
-      - key: FLASK_ENV
-        value: production
-      - key: SECRET_KEY
-        generateValue: true
-      
+      - key: PORT
+        value: 10000
