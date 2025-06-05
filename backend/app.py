@@ -1,3 +1,14 @@
+from flask import send_from_directory
+
+# Добавьте этот роут в app.py
+@app.route('/')
+def serve_frontend():
+    return send_from_directory('../frontend', 'index.html')
+
+# Для статических файлов
+@app.route('/<path:path>')
+def static_files(path):
+    return send_from_directory('../frontend', path)
 from flask import Flask, request, jsonify
 import random
 import hashlib
